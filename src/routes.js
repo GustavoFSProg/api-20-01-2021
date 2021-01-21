@@ -18,5 +18,6 @@ routes.post(
   upload.single('image'),
   productController.create
 )
+routes.get('/products', productController.getAll)
 
 export default routes

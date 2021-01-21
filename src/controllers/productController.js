@@ -20,4 +20,14 @@ async function create(req, res) {
   }
 }
 
-export default { create }
+async function getAll(req, res) {
+  try {
+    const data = await productModel.find()
+
+    return res.status(201).send({ data })
+  } catch (error) {
+    return res.status(400).send({ msg: 'Tudo CAGADO!', error })
+  }
+}
+
+export default { create, getAll }
